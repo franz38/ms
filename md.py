@@ -81,6 +81,10 @@ def dl_audio(video_url, location):
         y_audio.download(location)
         return ("downloaded", filename)
 
+# def dl_audio_list(video_url_list, location):
+#     for url in video_url_list:
+#         status, filename = dl_audio(url, location)
+
 def download_playlist(playlist_url, dump_location=""):
 
     playlist = Playlist(playlist_url)
@@ -183,35 +187,7 @@ def add_playlist(playlist_url, dump_location=""):
         print("Playlist already added")
 
 
-# def get_url_from_yt(query):
-#
-#     query_url = "https://www.youtube.com/results?search_query=" + query
-#
-#     driver = webdriver.Firefox()
-#     driver.get(query_url)
-#     html = driver.page_source
-#     soup  = BeautifulSoup(html, features="lxml")
-#     driver.quit()
-#
-#     item = soup.find(id="primary").find_all("ytd-video-renderer", class_="ytd-item-section-renderer")[0]
-#     video_url = "https://www.youtube.com/" + item.find("ytd-thumbnail").find("a", id="thumbnail")["href"]
-#     return video_url
-#
-# def add_spotify_playlist(spotify_id, dump_location=""):
-#     sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id="fe5cb70c31984c1c9b859e79a3a721ce",
-#                                                            client_secret="735c5faab0db4b39a43f395487dd8ff5"))
-#     #playlist_id = 'spotify:user:spotifycharts:playlist:5qwmXZBJMZAKT0PsxQ5RTD'
-#     results = sp.playlist(spotify_id)["tracks"]["items"]
-#
-#     song = {}
-#
-#     for r in results:
-#         song["title"] = r["track"]["name"]
-#         song["main_author"] = r["track"]["album"]["artists"][0]["name"]
-#         song["spotify_id"] = r["track"]["id"]
-#
-#         query = song["title"] + " " + song["main_author"]
-#         song["yt_url"] = get_url_from_yt(query)
+
 
 
 def remove_playlist(playlist_id, dump_location=""):
