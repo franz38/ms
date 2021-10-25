@@ -4,12 +4,6 @@ import os
 import sys
 import shutil
 
-import spotipy
-from spotipy.oauth2 import SpotifyClientCredentials
-from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-from bs4 import BeautifulSoup
-
 from cmanager import Cmanager
 
 
